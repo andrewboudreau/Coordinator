@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>$author$</authors>
+    <description>$description$</description>
+    <language>en-US</language>
+    <projectUrl>https://github.com/andrewboudreau/Coordinator/</projectUrl>
+    <licenseUrl>https://github.com/andrewboudreau/Coordinator/blob/master/license.txt</licenseUrl>
+  </metadata>
+</package>
