@@ -17,28 +17,28 @@ namespace Coordinator.WebApi.Controllers
         }
 
         /// <summary>
-        /// Get a list of registered sites.
+        /// Registers or updates a <see cref="Site"/> and returns a list of registered <see cref="Site">Sites</see>.
         /// </summary>
-        /// <param name="site"></param>
-        /// <returns></returns>
+        /// <param name="site">The <see cref="Site"/> being registered</param>
+        /// <returns>All registered <see cref="Site">Sites</see></returns>
         public IEnumerable<Site> Post(Site site)
         {
             return server.RegisterSite(site);
         }
         
         /// <summary>
-        /// Returns all registered sites.
+        /// Returns a list of all registered <see cref="Site">Sites</see>.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A collection of <see cref="Site">Sites</see></returns>
         public IEnumerable<Site> Get()
         {
             return server.GetSites();
         }
         
         /// <summary>
-        /// Deletes a registered site.
+        /// Deletes a <see cref="Site"/>.
         /// </summary>
-        /// <param name="id">Site Id</param>
+        /// <param name="id">Id of <see cref="Site"/> being deleted</param>
         public void Delete(string id)
         {
             server.Delete(id);
