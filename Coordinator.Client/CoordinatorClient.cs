@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Threading.Tasks;
 using Coordinator.Models;
 
@@ -11,9 +12,12 @@ namespace Coordinator.Client
     {
         private readonly Uri baseUrl;
 
+        private const string DefaultUrl = "http://coordinatorwebapi.azurewebsites.net/api/";
+
         public CoordinatorClient()
         {
-            baseUrl = new Uri("http://coordinatorwebapi.azurewebsites.net/api/");
+            string configurationUrl = ConfigurationManager.AppSettings["CoordinatorUrl"];
+            baseUrl = !string.IsNullOrEmpty(configurationUrl) ? new Uri(configurationUrl) : new Uri(DefaultUrl);
         }
 
         public async Task<IEnumerable<Site>> RegisterSiteAsync(Site site)
