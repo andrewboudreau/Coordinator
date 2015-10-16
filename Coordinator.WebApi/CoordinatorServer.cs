@@ -11,7 +11,8 @@ namespace Coordinator.WebApi
 
         public IEnumerable<Site> RegisterSite(Site site)
         {
-            Sites.AddOrUpdate(site.Id, site, ((key, oldValue) => { oldValue.LastRegistered = DateTime.UtcNow; return oldValue; }));
+            site.LastRegistered = DateTime.UtcNow;
+            Sites.AddOrUpdate(site.Id, site, ((key, oldValue) => site));
             return Sites.Values;
         }
 

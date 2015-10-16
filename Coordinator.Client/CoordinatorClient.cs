@@ -28,11 +28,12 @@ namespace Coordinator.Client
             {
                 Resource = "Sites",
                 Method = Method.POST,
-                RequestFormat = DataFormat.Json
+                RequestFormat = DataFormat.Json,
             };
 
-            var response = await client.ExecuteTaskAsync<List<Site>>(request);
+            request.AddBody(site);
 
+            var response = await client.ExecuteTaskAsync<List<Site>>(request);
             if (response.ErrorException != null)
             {
                 const string message = "Error retrieving response.  Check inner details for more info.";
